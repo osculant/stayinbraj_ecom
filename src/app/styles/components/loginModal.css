@@ -1,0 +1,29 @@
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.btn-1:disabled {
+  background-color: #6c757d;
+  pointer-events: none;
+}
+
+::selection {
+  background-color: #dc2626;
+  color: #fff;
+}
+
+:root {
+  --button-color: #dc2626;
+  --button-hover-color: #af2108;
+  --hover-color: #c24732;
+}
+
+.activeLink {
+  border-bottom: 2px solid #dc2626;
+  color: #dc2626;
+  padding-bottom: 0.5rem;
+}
+
+#loginCard {
+  background-image: linear-gradient(45deg, hsl(9deg 59% 48%) 0%, hsl(11deg 59% 59%) 20%, hsl(11deg 65% 70%) 40%, hsl(12deg 71% 80%) 60%, hsl(12deg 77% 90%) 80%, hsl(0deg 0% 100%) 100%);
+}

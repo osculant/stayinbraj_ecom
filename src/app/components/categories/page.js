@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import SearchModal from "../searchLocation/page.js";
+import { baseUrl } from "./../../config/siteConfig.js";
 
 const LAST_CITY_COOKIE = "last_search_city";
 
@@ -31,7 +32,7 @@ const Category = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch("http://localhost/stayinbraj/ecommerce-category", {
+        const res = await fetch(`${baseUrl}ecommerce-category`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",

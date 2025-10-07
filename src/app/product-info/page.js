@@ -10,6 +10,8 @@ import Product from "../components/homePage/product/page.js";
 import { useToast } from "../../context/toast.js";
 import { useCardContext } from "../../context/addToCart.js";
 
+import { baseUrl } from "./../config/siteConfig.js";
+
 const LAST_CITY_COOKIE = "last_search_city";
 // Cookie getter function
 const getCookie = (name) => {
@@ -54,7 +56,7 @@ const productInfo = () => {
       try {
         setLoading(true);
 
-        let route = `http://localhost/stayinbraj/ecommerce-available-store-product?product_id=${encodeURIComponent(productId)}&id=${encodeURIComponent(unqId)}`;
+        let route = `${baseUrl}ecommerce-available-store-product?product_id=${encodeURIComponent(productId)}&id=${encodeURIComponent(unqId)}`;
 
         const res = await fetch(route, {
           method: "GET",

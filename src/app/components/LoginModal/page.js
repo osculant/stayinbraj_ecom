@@ -6,7 +6,7 @@ import { useToast } from "../../../context/toast.js";
 import "remixicon/fonts/remixicon.css";
 
 import "../../styles/components/loginModal.css";
-import { commonLinks, imageLinks } from "../../config/siteConfig";
+import { commonLinks, imageLinks, baseUrl } from "../../config/siteConfig";
 import CountryModal from "../../components/countyModal/page.js";
 
 const SignInPart = ({ closeLoginModal }) => {
@@ -57,7 +57,7 @@ const SignInPart = ({ closeLoginModal }) => {
     fd.set("mobile_no", countryCode + fd.get("mobile_no"));
 
     try {
-      const res = await fetch("http://localhost/stayinbraj/ecommerce-user-password-signin", {
+      const res = await fetch(`${baseUrl}ecommerce-user-password-signin`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -89,7 +89,7 @@ const SignInPart = ({ closeLoginModal }) => {
 
     fd.set("mobile_no", countryCode + mobileNumber);
     try {
-      const res = await fetch("http://localhost/stayinbraj/ecommerce-send-otp-for-signin", {
+      const res = await fetch(`${baseUrl}ecommerce-send-otp-for-signin`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -121,7 +121,7 @@ const SignInPart = ({ closeLoginModal }) => {
     fd.append("mobile_no", countryCode + usermobile);
 
     try {
-      const res = await fetch("http://localhost/stayinbraj/ecommerce-user-otp-signin", {
+      const res = await fetch(`${baseUrl}ecommerce-user-otp-signin`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -149,7 +149,7 @@ const SignInPart = ({ closeLoginModal }) => {
     fd.append("mobile_no", countryCode + usermobile);
 
     try {
-      const res = await fetch("http://localhost/stayinbraj/ecommerce-send-otp-for-signin", {
+      const res = await fetch(`${baseUrl}ecommerce-send-otp-for-signin`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -300,7 +300,7 @@ const SignUpPart = ({ closeLoginModal }) => {
     fd.set("mobile_no", countryCode + mobile_no);
 
     try {
-      const res = await fetch("http://localhost/stayinbraj/ecommerce-user-signup-otp", {
+      const res = await fetch(`${baseUrl}ecommerce-user-signup-otp`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -335,7 +335,7 @@ const SignUpPart = ({ closeLoginModal }) => {
     fd.append("email_id", userEmail);
 
     try {
-      const res = await fetch("http://localhost/stayinbraj/ecommerce-user-signup", {
+      const res = await fetch(`${baseUrl}ecommerce-user-signup`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -364,7 +364,7 @@ const SignUpPart = ({ closeLoginModal }) => {
     fd.append("email_id", userEmail);
 
     try {
-      const res = await fetch("http://localhost/stayinbraj/ecommerce-user-signup-otp", {
+      const res = await fetch(`${baseUrl}ecommerce-user-signup-otp`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",

@@ -4,6 +4,8 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Script from "next/script";
 
+import { baseUrl } from "./../config/siteConfig.js";
+
 import AddCarosuel from "../components/addCarousel/page.js";
 import SearchModal from "../components/searchLocation/page.js";
 import Categories from "../components/categories/page.js";
@@ -86,7 +88,7 @@ const AvailableStore = () => {
       try {
         setLoading(true);
 
-        let route = category ? `http://localhost/stayinbraj/ecommerce-available-store?location=${encodeURIComponent(location)}&category=${encodeURIComponent(category)}` : `http://localhost/stayinbraj/ecommerce-available-store?location=${encodeURIComponent(location)}`;
+        let route = category ? `${baseUrl}ecommerce-available-store?location=${encodeURIComponent(location)}&category=${encodeURIComponent(category)}` : `${baseUrl}ecommerce-available-store?location=${encodeURIComponent(location)}`;
 
         const res = await fetch(route, {
           method: "GET",

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useToast } from "../../context/toast.js";
-import { imageLinks } from "../config/siteConfig.js";
+import { imageLinks, baseUrl } from "../config/siteConfig.js";
 
 import { commonLinks } from "../config/siteConfig.js";
 import CountryModal from "../components/countyModal/page.js";
@@ -89,7 +89,7 @@ export default function HotelSignup() {
     fd.append("email_id", basicInfoFormData.owner_email);
 
     try {
-      const res = await fetch("http://localhost/stayinbraj/ecommerce-partner-send-otp", {
+      const res = await fetch(`${baseUrl}ecommerce-partner-send-otp`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant", // Note: No need to set Content-Type for FormData
@@ -124,7 +124,7 @@ export default function HotelSignup() {
     fd.append("email_id", basicInfoFormData.owner_email);
 
     try {
-      const res = await fetch("http://localhost/stayinbraj/ecommerce-partner-send-otp", {
+      const res = await fetch(`${baseUrl}ecommerce-partner-send-otp`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant", // Note: No need to set Content-Type for FormData
@@ -160,7 +160,7 @@ export default function HotelSignup() {
       fd.append("mobile_no", countryCode + basicInfoFormData.owner_phone);
       fd.append("mobile_otp", otp);
 
-      const res = await fetch("http://localhost/stayinbraj/ecommerce-check-partner-otp", {
+      const res = await fetch(`${baseUrl}ecommerce-check-partner-otp`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant", // Note: No need to set Content-Type for FormData
@@ -202,7 +202,7 @@ export default function HotelSignup() {
     fd.append("country_code", countryCode);
 
     try {
-      const res = await fetch("http://localhost/stayinbraj/ecommerce-store-partner-info", {
+      const res = await fetch(`${baseUrl}ecommerce-store-partner-info`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant", // Note: No need to set Content-Type for FormData

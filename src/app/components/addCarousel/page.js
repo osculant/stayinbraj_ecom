@@ -6,6 +6,9 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
+import { baseUrl } from "./../../config/siteConfig.js";
+// import { baseUrl } from "./";
+
 export default function BannerCarousel() {
   const [banner, setBanner] = useState([]);
 
@@ -13,7 +16,7 @@ export default function BannerCarousel() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch("http://localhost/stayinbraj/ecommerce-advertisement", {
+        const res = await fetch(`${baseUrl}ecommerce-advertisement`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",

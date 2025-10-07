@@ -31,3 +31,6 @@ export const commonLinks = {
   returnRefund: "https://stayinbraj.com/return-and-refund",
   channelManager: "https://stayinbraj.com/channel_manager",
 };
+
+export const baseUrl = "https://stayinbraj.com/";
+// export const baseUrl = "http://localhost/stayinbraj/";

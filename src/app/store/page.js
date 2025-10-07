@@ -8,6 +8,8 @@ import { useCardContext } from ".././../context/addToCart.js"; // adjust path as
 import { useToast } from "../../context/toast.js";
 import SearchModal from "../components/searchLocation/page.js";
 
+import { baseUrl } from "./../config/siteConfig.js";
+
 const LAST_CITY_COOKIE = "last_search_city";
 // Cookie getter function
 const getCookie = (name) => {
@@ -68,7 +70,7 @@ const StoreDetail = () => {
   useEffect(() => {
     const fetchStore = async () => {
       try {
-        const res = await fetch(`http://localhost/stayinbraj/ecommerce-store-info?store_name=${encodeURIComponent(storeName)}&id=${encodeURIComponent(unqId)}`, {
+        const res = await fetch(`${baseUrl}ecommerce-store-info?store_name=${encodeURIComponent(storeName)}&id=${encodeURIComponent(unqId)}`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",

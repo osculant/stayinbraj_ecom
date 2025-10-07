@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+import { baseUrl } from "./../config/siteConfig";
+
 const OrderSuccessPage = () => {
   const [orderDetail, setOrderDetail] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -29,7 +31,7 @@ const OrderSuccessPage = () => {
 
     const fetchOrderPaymentInfo = async () => {
       try {
-        const route = `http://localhost/stayinbraj/ecommerce-order-check-payment-status?store_id=${parsedDetail.storeId}&order_id=${parsedDetail.orderId}&txn_id=${parsedDetail.mchTxnId}&payment_method=${parsedDetail.paymentMethod}`;
+        const route = `${baseUrl}ecommerce-order-check-payment-status?store_id=${parsedDetail.storeId}&order_id=${parsedDetail.orderId}&txn_id=${parsedDetail.mchTxnId}&payment_method=${parsedDetail.paymentMethod}`;
 
         const res = await fetch(route, {
           method: "GET",

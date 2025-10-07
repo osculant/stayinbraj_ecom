@@ -2,6 +2,8 @@
 import React , {useState, useEffect} from "react";
 import { useRouter } from "next/navigation";
 
+import { baseUrl } from "./config/siteConfig";
+
 // import component from "./components"; 
 import HeroSection from "./components/homePage/hero-section/page.js";
 import Services from "./components/homePage/services/page.js";
@@ -29,7 +31,7 @@ export default function Home() {
   useEffect(() => {
     const fetchStores = async () => {
       try {
-        const res = await fetch("http://localhost/stayinbraj/ecommerce-store-product-with-tag", {
+        const res = await fetch(`${baseUrl}ecommerce-store-product-with-tag`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",
@@ -55,7 +57,7 @@ export default function Home() {
   useEffect(() => {
     const fetchPosters = async () => {
       try {
-        const res = await fetch("http://localhost/stayinbraj/ecommerce-posters", {
+        const res = await fetch(`${baseUrl}ecommerce-posters`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",

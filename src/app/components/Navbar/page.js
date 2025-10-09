@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { commonLinks, contactInfo, imageLinks } from "../../config/siteConfig";
 import { useAuth } from "../../../context/AuthContext.js";
+
+import { ENV } from '@/config/env'; 
 
 // Auth Buttons Component
 const ContactInfoBar = ({ onLoginClick }) => {
@@ -16,14 +17,14 @@ const ContactInfoBar = ({ onLoginClick }) => {
             data-original="#fff"
           ></path>
         </svg>
-        <a href={`tel:${contactInfo.phoneNumber}`}>{contactInfo.phoneNumber}</a>
+        <a href={`tel:${ENV.phoneNumber}`}>{ENV.phoneNumber}</a>
       </button>
       <span className="border-l h-3 mx-6 max-sm:hidden"></span>
       <button type="button" className="text-gray-900 text-sm max-sm:my-2 hover:text-red-600 group">
         <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="#000" className="mr-3 inline-block group-hover:fill-red-600" viewBox="0 0 479.058 479.058">
           <path d="M434.146 59.882H44.912C20.146 59.882 0 80.028 0 104.794v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159L239.529 264.631 39.173 90.982a14.902 14.902 0 0 1 5.738-1.159zm0 299.411H44.912c-8.26 0-14.971-6.71-14.971-14.971V122.615l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z" data-original="#fff"></path>
         </svg>
-        <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+        <a href={`mailto:${ENV.email}`}>{ENV.email}</a>
       </button>
       <div className="sm:ml-auto text-gray-900">
         {!authToken && (
@@ -45,8 +46,8 @@ const ContactInfoBar = ({ onLoginClick }) => {
 const NavbarLinks = ({ onLoginClick }) => {
   return (
     <div id="navBar" className="w-full flex flex-wrap items-center justify-between py-3 px-4 sm:px-10 bg-white lg:gap-y-4 gap-y-6 gap-x-4 duration-300">
-      <a href={commonLinks.webLink}>
-        <img src={imageLinks.logo} alt="logo" className="h-12" />
+      <a href={ENV.links.web}>
+        <img src={ENV.imageLinks.logo} alt="logo" className="h-12" />
       </a>
 
       <div id="collapseMenu" className="max-lg:hidden lg:!flex lg:items-center max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0 max-lg:before:z-50">
@@ -59,12 +60,12 @@ const NavbarLinks = ({ onLoginClick }) => {
 
         <ul className="lg:!flex lg:gap-x-10 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:px-10 max-lg:py-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
           <li className="mb-6 hidden max-lg:block">
-            <a href={commonLinks.webLink}>
-              <img src={imageLinks.logo} alt="logo" className="h-14" />
+            <a href={ENV.links.web}>
+              <img src={ENV.imageLinks.logo} alt="logo" className="h-14" />
             </a>
           </li>
           <li>
-            <a href={commonLinks.webLink} className=" text-gray-900 hover:text-red-600 text-xl flex items-center max-lg:border-b border-gray-800 max-lg:py-3">
+            <a href={ENV.links.web} className=" text-gray-900 hover:text-red-600 text-xl flex items-center max-lg:border-b border-gray-800 max-lg:py-3">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" className="w-6 h-6 mr-3 fill-current">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -83,7 +84,7 @@ const NavbarLinks = ({ onLoginClick }) => {
             </a>
           </li>
           <li>
-            <a href={commonLinks.foodNavLink} className="text-gray-900 hover:text-red-600 text-xl flex items-center max-lg:border-b border-gray-800 max-lg:py-3">
+            <a href={ENV.links.foodNav} className="text-gray-900 hover:text-red-600 text-xl flex items-center max-lg:border-b border-gray-800 max-lg:py-3">
               <svg className="w-6 h-6 mr-3 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -105,7 +106,7 @@ const NavbarLinks = ({ onLoginClick }) => {
             </a>
           </li>
           <li>
-            <a href={commonLinks.propertyNavLink} className="text-gray-900 hover:text-red-600 text-xl flex items-center max-lg:border-b border-gray-800 max-lg:py-3">
+            <a href={ENV.links.propertyNav} className="text-gray-900 hover:text-red-600 text-xl flex items-center max-lg:border-b border-gray-800 max-lg:py-3">
               <svg className="w-6 h-6 mr-3 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -121,7 +122,7 @@ const NavbarLinks = ({ onLoginClick }) => {
             </a>
           </li>
           <li>
-            <a href={commonLinks.commingSoon} className="text-gray-900 hover:text-red-600 text-xl flex items-center max-lg:border-b border-gray-800 max-lg:py-3">
+            <a href={ENV.links.comingSoon} className="text-gray-900 hover:text-red-600 text-xl flex items-center max-lg:border-b border-gray-800 max-lg:py-3">
               <svg className="w-6 h-6 mr-3 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -137,7 +138,7 @@ const NavbarLinks = ({ onLoginClick }) => {
             </a>
           </li>
           <li>
-            <a href={commonLinks.commingSoon} className="text-gray-900 hover:text-red-600 text-xl flex items-center max-lg:border-b border-gray-800 max-lg:py-3">
+            <a href={ENV.links.comingSoon} className="text-gray-900 hover:text-red-600 text-xl flex items-center max-lg:border-b border-gray-800 max-lg:py-3">
               <svg className="h-7 mr-3 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <g id="SVGRepo_iconCarrier">
                   <path d="M137.351,339.824c-22.831,0-41.341,18.51-41.341,41.341c0,22.832,18.51,41.319,41.341,41.319 c22.824,0,41.312-18.488,41.312-41.319C178.663,358.333,160.175,339.824,137.351,339.824z M137.351,399.748 c-10.289,0-18.606-8.324-18.606-18.584c0-10.289,8.317-18.606,18.606-18.606c10.259,0,18.584,8.317,18.584,18.606 C155.935,391.424,147.61,399.748,137.351,399.748z"></path>
@@ -188,17 +189,17 @@ const NavbarUserMenu = ({ onLoginClick }) => {
                   <p className="text-sm text-gray-600">To access account and manage orders</p>
 
                   <div className="mt-6 space-y-4">
-                    <a href={commonLinks.userRoomBooking} className="flex items-center space-x-3 text-gray-700 hover:text-[#ea384c] hover:bg-[#ea384c]/10 p-2 rounded-md transition-colors">
+                    <a href={ENV.links.userRoomBooking} className="flex items-center space-x-3 text-gray-700 hover:text-[#ea384c] hover:bg-[#ea384c]/10 p-2 rounded-md transition-colors">
                       <i className="ri-hotel-line text-xl shrink-0" />
                       <span>Bookings</span>
                     </a>
 
-                    <a href={commonLinks.userFoodOrders} className="flex items-center space-x-3 text-gray-700 hover:text-[#ea384c] hover:bg-[#ea384c]/10 p-2 rounded-md transition-colors">
+                    <a href={ENV.links.userFoodOrders} className="flex items-center space-x-3 text-gray-700 hover:text-[#ea384c] hover:bg-[#ea384c]/10 p-2 rounded-md transition-colors">
                       <i className="ri-cake-3-line text-xl shrink-0" />
                       <span>Food Orders</span>
                     </a>
 
-                    <a href={commonLinks.userPropertyEnquiry} className="flex items-center space-x-3 text-gray-700 hover:text-[#ea384c] hover:bg-[#ea384c]/10 p-2 rounded-md transition-colors">
+                    <a href={ENV.links.userPropertyEnquiry} className="flex items-center space-x-3 text-gray-700 hover:text-[#ea384c] hover:bg-[#ea384c]/10 p-2 rounded-md transition-colors">
                       <i className="ri-heart-line text-xl shrink-0" />
                       <span>Enquiries</span>
                     </a>

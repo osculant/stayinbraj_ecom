@@ -7,8 +7,7 @@ import AddCarosuel from "../components/addCarousel/page.js";
 import { useCardContext } from ".././../context/addToCart.js"; // adjust path as needed
 import { useToast } from "../../context/toast.js";
 import SearchModal from "../components/searchLocation/page.js";
-
-import { baseUrl } from "./../config/siteConfig.js";
+import { ENV } from '@/config/env'; 
 
 const LAST_CITY_COOKIE = "last_search_city";
 // Cookie getter function
@@ -70,7 +69,7 @@ const StoreDetail = () => {
   useEffect(() => {
     const fetchStore = async () => {
       try {
-        const res = await fetch(`${baseUrl}ecommerce-store-info?store_name=${encodeURIComponent(storeName)}&id=${encodeURIComponent(unqId)}`, {
+        const res = await fetch(`${ENV.baseUrl}ecommerce-store-info?store_name=${encodeURIComponent(storeName)}&id=${encodeURIComponent(unqId)}`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",

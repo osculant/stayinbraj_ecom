@@ -4,9 +4,9 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../../../context/AuthContext.js";
 import { useToast } from "../../../context/toast.js";
 import "remixicon/fonts/remixicon.css";
+import { ENV } from '@/config/env'; 
 
 import "../../styles/components/loginModal.css";
-import { commonLinks, imageLinks, baseUrl } from "../../config/siteConfig";
 import CountryModal from "../../components/countyModal/page.js";
 
 const SignInPart = ({ closeLoginModal }) => {
@@ -57,7 +57,7 @@ const SignInPart = ({ closeLoginModal }) => {
     fd.set("mobile_no", countryCode + fd.get("mobile_no"));
 
     try {
-      const res = await fetch(`${baseUrl}ecommerce-user-password-signin`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-user-password-signin`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -89,7 +89,7 @@ const SignInPart = ({ closeLoginModal }) => {
 
     fd.set("mobile_no", countryCode + mobileNumber);
     try {
-      const res = await fetch(`${baseUrl}ecommerce-send-otp-for-signin`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-send-otp-for-signin`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -121,7 +121,7 @@ const SignInPart = ({ closeLoginModal }) => {
     fd.append("mobile_no", countryCode + usermobile);
 
     try {
-      const res = await fetch(`${baseUrl}ecommerce-user-otp-signin`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-user-otp-signin`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -149,7 +149,7 @@ const SignInPart = ({ closeLoginModal }) => {
     fd.append("mobile_no", countryCode + usermobile);
 
     try {
-      const res = await fetch(`${baseUrl}ecommerce-send-otp-for-signin`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-send-otp-for-signin`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -300,7 +300,7 @@ const SignUpPart = ({ closeLoginModal }) => {
     fd.set("mobile_no", countryCode + mobile_no);
 
     try {
-      const res = await fetch(`${baseUrl}ecommerce-user-signup-otp`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-user-signup-otp`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -335,7 +335,7 @@ const SignUpPart = ({ closeLoginModal }) => {
     fd.append("email_id", userEmail);
 
     try {
-      const res = await fetch(`${baseUrl}ecommerce-user-signup`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-user-signup`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -364,7 +364,7 @@ const SignUpPart = ({ closeLoginModal }) => {
     fd.append("email_id", userEmail);
 
     try {
-      const res = await fetch(`${baseUrl}ecommerce-user-signup-otp`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-user-signup-otp`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",
@@ -457,17 +457,17 @@ const LoginModal = ({ isOpen, isClose }) => {
             <div className="flex flex-col gap-4 my-8 w-full">
               {[
                 {
-                  src: imageLinks.modalBookingImg,
+                  src: ENV.imageLinks.modalBookingImg,
                   title: "Online Hotel Booking",
                   desc: "Exclusive Deals: Save More on Your Next Booking",
                 },
                 {
-                  src: imageLinks.modalPropertyImg,
+                  src: ENV.imageLinks.modalPropertyImg,
                   title: "Rent/Purchase Property",
                   desc: "Exclusive Cashback on Your Booking",
                 },
                 {
-                  src: imageLinks.modalFoodImg,
+                  src: ENV.imageLinks.modalFoodImg,
                   title: "Online Food Order",
                   desc: "Savor Your First Meal with Exclusive Discounts",
                 },
@@ -505,11 +505,11 @@ const LoginModal = ({ isOpen, isClose }) => {
             <div className="my-4 flex self-end">
               <p className="p-0 text-[0.6rem] text-center text-black">
                 By proceeding, you agree to Stayinbraj{" "}
-                <a href={commonLinks.privacyPolicy} className="text-red-600 hover:underline hover:text-red-700">
+                <a href={ENV.links.privacyPolicy} className="text-red-600 hover:underline hover:text-red-700">
                   Privacy Policy
                 </a>
                 , User Agreement and{" "}
-                <a href={commonLinks.termAndCondition} className="text-red-600 hover:underline hover:text-red-700">
+                <a href={ENV.links.terms} className="text-red-600 hover:underline hover:text-red-700">
                   Terms of Service
                 </a>
               </p>

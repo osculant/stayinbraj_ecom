@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import SearchModal from "../../searchLocation/page.js";
-import { baseUrl } from "./../../../config/siteConfig.js";
+import { ENV } from '@/config/env'; 
 
 const LAST_CITY_COOKIE = "last_search_city";
 // Cookie getter function
@@ -37,7 +37,7 @@ const store = () => {
   useEffect(() => {
     const fetchStores = async () => {
       try {
-        const res = await fetch(`${baseUrl}ecommerce-stores`, {
+        const res = await fetch(`${ENV.baseUrl}ecommerce-stores`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",

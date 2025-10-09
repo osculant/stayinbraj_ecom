@@ -1,10 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useToast } from "../../context/toast.js";
-import { imageLinks, baseUrl } from "../config/siteConfig.js";
-
-import { commonLinks } from "../config/siteConfig.js";
 import CountryModal from "../components/countyModal/page.js";
+
+import { ENV } from '@/config/env'; 
 
 export default function HotelSignup() {
   const totalSteps = 6,
@@ -89,7 +88,7 @@ export default function HotelSignup() {
     fd.append("email_id", basicInfoFormData.owner_email);
 
     try {
-      const res = await fetch(`${baseUrl}ecommerce-partner-send-otp`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-partner-send-otp`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant", // Note: No need to set Content-Type for FormData
@@ -124,7 +123,7 @@ export default function HotelSignup() {
     fd.append("email_id", basicInfoFormData.owner_email);
 
     try {
-      const res = await fetch(`${baseUrl}ecommerce-partner-send-otp`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-partner-send-otp`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant", // Note: No need to set Content-Type for FormData
@@ -160,7 +159,7 @@ export default function HotelSignup() {
       fd.append("mobile_no", countryCode + basicInfoFormData.owner_phone);
       fd.append("mobile_otp", otp);
 
-      const res = await fetch(`${baseUrl}ecommerce-check-partner-otp`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-check-partner-otp`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant", // Note: No need to set Content-Type for FormData
@@ -202,7 +201,7 @@ export default function HotelSignup() {
     fd.append("country_code", countryCode);
 
     try {
-      const res = await fetch(`${baseUrl}ecommerce-store-partner-info`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-store-partner-info`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant", // Note: No need to set Content-Type for FormData
@@ -231,7 +230,7 @@ export default function HotelSignup() {
         {/* Progress Bar */}
         <div className="flex justify-between items-center lg:mb-8 mb-16 lg:mt-0 mt-4">
           <div className="basis-1/2 sm:basis-1/3 lg:basis-1/6 px-2">
-            <img src={imageLinks.logo} alt="logo" className="h-16" />
+            <img src={ENV.imageLinks.logo} alt="logo" className="h-16" />
           </div>
           <div className="basis-1/2 sm:basis-1/3 lg:basis-1/6 bg-gray-100 flex justify-between items-baseline px-4 py-2 rounded-xl">
             <div className="bg-gray-300 rounded-full flex-grow h-[10px] overflow-hidden">
@@ -454,14 +453,13 @@ export default function HotelSignup() {
                 To continue your eCommerce store listing process, please click the button below and complete the remaining steps.
               </div>
               <div className="w-full flex justify-center items-center">
-                <a href={commonLinks.channelManager} className="px-8 py-4 text-white bg-red-600 hover:bg-red-700 rounded-full shadow-lg text-lg font-bold">
+                <a href={ENV.links.channelManager} className="px-8 py-4 text-white bg-red-600 hover:bg-red-700 rounded-full shadow-lg text-lg font-bold">
                   Continue Store Listing
                 </a>
               </div>
             </div>
           </div>
         )}
-
         <CountryModal isOpen={countyCodemodalOpen} onClose={() => setCountryCodeModalOpen(false)} onSelectCountry={handleSelectCountry} />
       </section>
     </section>

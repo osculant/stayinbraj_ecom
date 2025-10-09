@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { baseUrl } from "./../../config/siteConfig.js";
+import { ENV } from '@/config/env'; 
 
 const CountryModal = ({ isOpen, onClose, onSelectCountry }) => {
   const [search, setSearch] = useState("");
@@ -17,7 +17,7 @@ const CountryModal = ({ isOpen, onClose, onSelectCountry }) => {
   const fetchCountries = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${baseUrl}ecommerce-country-code`, {
+      const response = await fetch(`${ENV.baseUrl}ecommerce-country-code`, {
         method: "GET",
         headers: {
           access: "stayinbraj2025osculant",

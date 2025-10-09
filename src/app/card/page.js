@@ -9,7 +9,7 @@ import { useToast } from "../../context/toast.js";
 import CountryModal from "../components/countyModal/page.js";
 import SearchModal from "../components/searchLocation/page.js";
 
-import { baseUrl } from "./../config/siteConfig.js";
+import { ENV } from '@/config/env'; 
 
 const LAST_CITY_COOKIE = "last_search_city";
 // Cookie getter function
@@ -125,7 +125,7 @@ const CartPage = () => {
     setSelectedStoreId(storeId);
 
     try {
-      const res = await fetch(`${baseUrl}ecommerce-seleced-product-info`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-seleced-product-info`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -178,7 +178,7 @@ const CartPage = () => {
     fd.append("store_id", selectedStoreId);
 
     try {
-      const res = await fetch(`${baseUrl}ecommerce-place-order`, {
+      const res = await fetch(`${ENV.baseUrl}ecommerce-place-order`, {
         method: "POST",
         headers: {
           access: "stayinbraj2025osculant",

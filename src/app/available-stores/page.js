@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Script from "next/script";
 
-import { baseUrl } from "./../config/siteConfig.js";
+import { ENV } from '@/config/env'; 
 
 import AddCarosuel from "../components/addCarousel/page.js";
 import SearchModal from "../components/searchLocation/page.js";
@@ -88,7 +88,7 @@ const AvailableStore = () => {
       try {
         setLoading(true);
 
-        let route = category ? `${baseUrl}ecommerce-available-store?location=${encodeURIComponent(location)}&category=${encodeURIComponent(category)}` : `${baseUrl}ecommerce-available-store?location=${encodeURIComponent(location)}`;
+        let route = category ? `${ENV.baseUrl}ecommerce-available-store?location=${encodeURIComponent(location)}&category=${encodeURIComponent(category)}` : `${ENV.baseUrl}ecommerce-available-store?location=${encodeURIComponent(location)}`;
 
         const res = await fetch(route, {
           method: "GET",
